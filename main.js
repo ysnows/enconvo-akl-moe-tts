@@ -9,7 +9,7 @@ function main(text, contextText, completion) {
 
         let detected_lang = await $Lang.detect(translate_text)
 
-        console.log("detected_lang: " + config.supportedLanguages)
+        console.log("detected_lang: " + detected_lang)
         const targetLanguage = utils.langMap.get(detected_lang);
 
         console.log("targetLanguage: " + targetLanguage)
