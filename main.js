@@ -22,24 +22,26 @@ function main(text, contextText, completion) {
             })
             socket.open()
             socket.listenReceiveString(function (socket, string) {
-                console.log(`did receive string: ${string}`);
+                // console.log(`did receive string: ${string}`);
                 if (JSON.parse(string).msg == 'send_hash') {
                     socket.sendString('{"session_hash":"ivnr592j25","fn_index":1}');
                 } else if (JSON.parse(string).msg == 'send_data') {
                     let s = '{"fn_index":45,"data":["' + originText + '","' + speaker + '",1,false],"session_hash":"ivnr592j25"}';
-                    console.log(s)
+                    // console.log(s)
                     socket.sendString(s);
                 } else if (JSON.parse(string).msg == 'process_completed') {
                     // console.log('***********Client received a message==>' + JSON.parse(string).output.data[1])
-                    console.log("audio: " + string)
-                    base64Result = JSON.parse(string).output.data[1].split('base64,')[1]
-                    console.log("\n"+base64Result)
+                    const base64 = JSON.parse(string).output.data[1].split('base64,')
+                    const contentType = base64[0].split(':')[1].split(';')[0];
+                    console.log("base64:" + contentType)
+                    base64Result = base64[1].split(':')
                     // socket.close()
                     completion({
                         result: {
                             "type": "audio",
                             "format": "base64",
                             "value": base64Result,
+                            "contentType": contentType,
                             "raw": {}
                         },
                     });
