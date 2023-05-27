@@ -22,8 +22,8 @@ function main(text, contextText, completion) {
             throw err;
         }
 
-
         const originText = '[' + targetLanguage + ']' + translate_text + '[' + targetLanguage + ']'
+
         let base64Result = ''
         try {
             const speaker = '綾地寧々';
@@ -36,8 +36,17 @@ function main(text, contextText, completion) {
             })
 
             socket.open()
+            socket.listenClose(function (socket, code, reason) {
+                completion({
+                    result: {
+                        "type": "error",
+                        "value": "播放失败" || '未知错误',
+                    },
+                });
+            })
+
             socket.listenReceiveString(function (socket, string) {
-                // console.log(`did receive string: ${string}`);
+                console.log(`did receive string: ${string}`);
                 if (JSON.parse(string).msg == 'send_hash') {
                     socket.sendString('{"session_hash":"ivnr592j25","fn_index":1}');
                 } else if (JSON.parse(string).msg == 'send_data') {
