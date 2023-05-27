@@ -16,8 +16,8 @@ logo: ns:translate
 description: "\u4E8C\u6B21\u5143\u8001\u5A46\u6587\u5B57\u8F6C\u8BED\u97F3"
 async: false
 shortName: laopo
-homePage: https://github.com/ysnows/enconvo-azure-tts
-appCast: https://raw.githubusercontent.com/ysnows/enconvo-azure-tts/main/appcast.json
-shortCut: alt+j
-minAppVersion: ''
+homePage: https://github.com/ysnows/enconvo-akl-moe-tts
+appCast: https://raw.githubusercontent.com/ysnows/enconvo-akl-moe-tts/main/appcast.json
+shortCut:
+minAppVersion: '1.2.1'
 flowType: plugin
