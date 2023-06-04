@@ -2,6 +2,12 @@
   "identifier": "ysnows.akl-moe-tts",
   "versions": [
     {
+      "version": "0.0.4",
+      "desc": "feat: 1. 0.0.4",
+      "url": "https://github.com/ysnows/enconvo-akl-moe-tts/releases/download/v0.0.4/enconvo-akl-moe-tts.enconvoplugin",
+      "minAppVersion": "1.1.8"
+    },
+    {
       "version": "0.0.2",
       "desc": "feat: 1. optimize",
       "url": "https://github.com/ysnows/enconvo-akl-moe-tts/releases/download/v0.0.2/enconvo-akl-moe-tts.enconvoplugin",
